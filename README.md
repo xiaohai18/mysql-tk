@@ -6,7 +6,7 @@
 
 
 ## example
-    	var MysqlTK = require('./index');
+	var MysqlTK = require('./index');
 
 	//Setting configuration
 	MysqlTK.CONFIG = {
