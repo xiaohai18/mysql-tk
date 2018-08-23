@@ -1,14 +1,14 @@
-##A simple and easy to use NPM package based on MySQL's NPM package.
+## A simple and easy to use NPM package based on MySQL's NPM package.
 
 
-##install mysql-tk
+## install mysql-tk
     npm install --save mysql-tk
 
 
 ## example
-    var MysqlTK = require('./index');
+    	var MysqlTK = require('./index');
 
-    //Setting configuration
+	//Setting configuration
 	MysqlTK.CONFIG = {
 		host     : 'localhost',
 		user     : 'root',
@@ -16,7 +16,7 @@
 		database : 'dbName'
 	};
 
-
+	//example
 	MysqlTK('tableName')
 		.count((count)=>{
 			console.log(count);
@@ -66,5 +66,7 @@
 		.delete((res)=>{
 			console.log(res);
 		});
+
+
 
 
