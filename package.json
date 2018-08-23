@@ -1,6 +1,6 @@
 {
   "name": "mysql-tk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Using MySQL in Nodejs.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,9 @@
     "url": "git+https://github.com/hishion/mysql-tk.git"
   },
   "keywords": [
-    "mysql-js"
+    "mysql",
+    "mysql-tk",
+    "mysql npm"
   ],
   "author": "hishion",
   "license": "ISC",
