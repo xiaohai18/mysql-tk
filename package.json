@@ -1,0 +1,25 @@
+{
+  "name": "mysql-tk",
+  "version": "1.0.0",
+  "description": "Using MySQL in Nodejs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hishion/mysql-tk.git"
+  },
+  "keywords": [
+    "mysql-js"
+  ],
+  "author": "hishion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hishion/mysql-tk/issues"
+  },
+  "homepage": "https://github.com/hishion/mysql-tk#readme",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}
