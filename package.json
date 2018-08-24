@@ -1,6 +1,6 @@
 {
   "name": "mysql-tk",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Using MySQL in Nodejs.",
   "main": "index.js",
   "scripts": {

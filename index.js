@@ -104,14 +104,14 @@ MysqlTK.prototype = {
 		var that = this;
 		this.query(this._parseSql(this.sqlCount), function(res){
 			if(that.isFunction(callback)){
-				callback(res[0] ? res[0]['COUNT(*)'] : 0);
+				callback(res && res[0] ? res[0]['COUNT(*)'] : 0);
 			}
 		})
 	},
 	query: function(sql, callback){
 		var that = this;
 		db(sql, function(res){
-			if(that.isFunction(callback) && that.isArray(res)){
+			if(that.isFunction(callback)){
 				callback(res);
 			}
 		})
@@ -131,7 +131,6 @@ MysqlTK.prototype = {
 		}
 		this.sqlMaps['fields'] = fields.join(', ');
 		this.sqlMaps['values'] = values.join(', ');
-		//fs.writeFile('./xx.json', values.join(', '));
 		this.query(this._parseSql(this.sqlInsert), callback);
 	},
 
