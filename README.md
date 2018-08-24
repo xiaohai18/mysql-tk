@@ -24,7 +24,6 @@
 	
 	//query a data
 	MysqlTK('tableName')
-		.where('type', 1)
 		.find((data)=>{
 			console.log(data);
 		});
