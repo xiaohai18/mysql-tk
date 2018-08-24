@@ -23,7 +23,7 @@
 		});
 
 	MysqlTK('tableName')
-		.where({id:1,type:2})
+		.where('type', 1)
 		.find((data)=>{
 			console.log(data);
 		});
@@ -36,8 +36,8 @@
 		});
 
 	MysqlTK('tableName')
-		.fields(['id','name'])
-		.where({id:1,type:2})
+		.fields(['id', 'name', 'type'])
+		.where('type', 1)
 		.limit([1,10], (data)=>{
 			console.log(data);
 		});
