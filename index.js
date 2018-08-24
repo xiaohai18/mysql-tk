@@ -226,10 +226,9 @@ MysqlTK.prototype = {
 		  "<": "&#60;",
 		  ">": "&#62;",
 		  '"': "&#34;",
-		  "'": "&#39;",
-		  "&": "&#38;"
+		  "'": "&#39;"
 		};
-		return String(str).replace(/['"]/g, function(a){
+		return String(str).replace(/[<>'"]/g, function(a){
 			return escapeMap[b];
 		})
 	}
