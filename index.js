@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var fs = require('fs');
 
 const db = function(sql, callback){
 	//创建连接
@@ -126,13 +127,14 @@ MysqlTK.prototype = {
 
 		for(var attr in data){
 			fields.push(attr);
-			values.push(data[attr]);
+			values.push( this._format(data[attr]) );
 		}
 		this.sqlMaps['fields'] = fields.join(', ');
 		this.sqlMaps['values'] = values.join(', ');
-
+		//fs.writeFile('./xx.json', values.join(', '));
 		this.query(this._parseSql(this.sqlInsert), callback);
 	},
+
 
 	//-更新数据
 	//data => {name1: value1, name2: value2}
@@ -142,7 +144,7 @@ MysqlTK.prototype = {
 		}
 		var values = [];
 		for(var attr in data){
-			values.push( attr + '="' + data[attr] + '"');
+			values.push( attr + '=' + this._format(data[attr]));
 		}
 		this.sqlMaps['update'] = values.join(', ');
 
@@ -158,6 +160,9 @@ MysqlTK.prototype = {
 	},
 	types: function(arg){
 		return Object.prototype.toString.call(arg);
+	},
+	isNumber: function(n){
+		return this.types(n) === '[object Number]';
 	},
 	isFunction: function(fn){
 		return this.types(fn) === '[object Function]';
@@ -203,6 +208,30 @@ MysqlTK.prototype = {
 	},
 	getTable: function(){
 		return this.table;
+	},
+	
+	_format: function(v){
+		if(this.isNumber(v)){
+			return v;
+		}else{
+			return '"' + this._escape(v) + '"';
+		}
+	},
+
+	_escape: function(str){
+		if(!str){
+			return '';
+		}
+		var escapeMap = {
+		  "<": "&#60;",
+		  ">": "&#62;",
+		  '"': "&#34;",
+		  "'": "&#39;",
+		  "&": "&#38;"
+		};
+		return String(str).replace(/['"]/g, function(a){
+			return escapeMap[b];
+		})
 	}
 };
 
