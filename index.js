@@ -228,7 +228,7 @@ MysqlTK.prototype = {
 		  "'": "&#39;"
 		};
 		return String(str).replace(/[<>'"]/g, function(a){
-			return escapeMap[b];
+			return escapeMap[a];
 		})
 	}
 };
