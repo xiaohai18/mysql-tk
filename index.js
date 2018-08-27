@@ -63,7 +63,7 @@ MysqlTK.prototype = {
 		this.sqlInsert = 'INSERT INTO {table} ({fields}) VALUE ({values})';
 		this.sqlUpdate = 'UPDATE {table} SET {update} {where}';
 		this.sqlDelete = 'DELETE FROM {table} {where}';
-		this.sqlCount  = 'SELECT COUNT(*) FROM {table} {where}';
+		this.sqlCount  = 'SELECT COUNT(*) AS count FROM {table} {where}';
 	},
 	//解析sql语句
 	_parseSql: function(sql){
@@ -104,7 +104,7 @@ MysqlTK.prototype = {
 		var that = this;
 		this.query(this._parseSql(this.sqlCount), function(res){
 			if(that.isFunction(callback)){
-				callback(res && res[0] ? res[0]['COUNT(*)'] : 0);
+				callback(res && res[0] ? res[0].count : 0);
 			}
 		})
 	},
